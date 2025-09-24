@@ -1,29 +1,32 @@
 package services;
 
-import java.util.HashMap;
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
+
+@Service
 public class Facade {
-    private static Facade instance=null;
+    @Autowired
+    private Service2 service2;
 
-    private Map<String,String> users;
-
-    private Facade(){
-        users=new HashMap<>();
-        users.put("alice","alice");
-        users.put("bob","bob");
-    }
-
-    public static synchronized Facade getInstance() {
-        if (instance==null) {
-            instance=new Facade();
-        }
-        return instance;
-    }
+    @Autowired
+    private Service1 service1;
 
     public boolean checkLP(String login,String password) {
-        String pwd=users.get(login);
-        return ((pwd!=null) && (pwd.equals(password)));
-   }
+        return service1.checkLP(login,password);
+    }
+    public List<String> getHumeurs() {
+        return service1.getHumeurs();
+    }
+
+    public int getNbInvocation() {
+        return service2.getNbInvocation();
+    }
+
+    public void incrementNbInvocation(){
+        service2.incrementNbInvocation();
+    }
 
 }
