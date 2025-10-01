@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: o22100171@campus.univ-orleans.fr
+Build-Jdk: Microsoft OpenJDK 21.0.8
+
