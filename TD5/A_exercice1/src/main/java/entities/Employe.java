@@ -3,7 +3,6 @@ package entities;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.Set;
-
 @Entity
 @Table(name = "EMPLOYES")
 public class Employe {
@@ -39,6 +38,7 @@ public class Employe {
         this.prenom = prenom;
         this.nom = nom;
     }
+
 
     public int getIdEmp() {
         return idEmp;
